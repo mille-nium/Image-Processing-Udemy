@@ -1,11 +1,17 @@
 import cv2
-import numpy as np
-from matplotlib import pyplot as plt
+from pylab import *
 
-img  = cv2.imread('images/profile.jpg',0)
+img = cv2.imread('images/bird.jpg', 0)
 
-sobel_x  = cv2.Sobel(img,-1,1,0,ksize=5)
-sobel_y  = cv2.Sobel(img,-1,0,1,ksize=5)
+sobel_x = cv2.Sobel(img, -1, 1, 0, ksize=5)
+sobel_y = cv2.Sobel(img, -1, 0, 1, ksize=5)
 
-plt.imshow(sobel_y, cmap ='gray')
-plt.show()
+subplot(1, 2, 1)
+imshow(img, cmap ='gray')
+title('Original')
+
+subplot(1, 2, 2)
+imshow(sobel_y, cmap ='gray')
+title('Sobel edge detection')
+
+show()
